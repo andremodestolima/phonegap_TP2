@@ -14,11 +14,12 @@ body {
 
 #botoes{
     margin: 0% 10% 0% 10%;
+    height:10%;
 }
 
 button{
     width:45%;
-    height:10%;
+    height:100%;
 }
 
 a {
