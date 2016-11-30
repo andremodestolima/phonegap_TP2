@@ -13,10 +13,11 @@ body {
 }
 
 #botoes{
-    margin: 5% 10% 5% 10%;
+    margin: auto;
 }
 
 a {
+    width:50%;
     padding: 5% 15% 5% 15%;
     border-radius:5px;
     background-color: #d2e4f5;
