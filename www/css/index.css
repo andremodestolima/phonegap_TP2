@@ -16,6 +16,10 @@ body {
     margin: 0% 25% 0% 25%;
 }
 
+button{
+    width:40%;
+}
+
 a {
     padding: 5% 15% 5% 15%;
     border-radius:5px;
