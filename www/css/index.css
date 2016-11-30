@@ -13,15 +13,14 @@ body {
 }
 
 #botoes{
-    margin: 0% 25% 0% 25%;
+    margin: 0% 10% 0% 10%;
 }
 
 button{
-    width:100%;
+    width:45%;
 }
 
 a {
-    padding: 5% 15% 5% 15%;
     border-radius:5px;
     background-color: #d2e4f5;
     text-decoration:none;
