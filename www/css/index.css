@@ -9,9 +9,12 @@ body {
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
     height:100%;
+    background-color: #465661;
 }
 
 a {
     width:40%;
-    background-color:whitesmoke;
+    padding: 10px 30px 10px 30px;
+    border-radius:5px;
+    background-color: #d2e4f5;
 }
