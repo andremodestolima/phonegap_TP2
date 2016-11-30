@@ -7,17 +7,16 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    font-size:25px;
     height:100%;
     background-color: #465661;
 }
 
 #botoes{
-    margin: 0% 20% 0% 20%;
+    margin: 0% 25% 0% 25%;
 }
 
 a {
-    width:50%;
     padding: 5% 15% 5% 15%;
     border-radius:5px;
     background-color: #d2e4f5;
