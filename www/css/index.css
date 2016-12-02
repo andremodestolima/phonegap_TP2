@@ -31,17 +31,17 @@ label{
 
 button{
     float:right;
-    margin:0px;
+    margin:0%;
     width:49%;
-    height:50px;
-    border-radius:0% 5% 5% 0%;
+    height:20%;
+    border-radius:0% 15% 15% 0%;
     background-color: #d2e4f5;
 }
 
 #ola{}
 #nome{}
 #texto{
-    height:50px;
-    border-radius: 5% 0% 0% 5%;
+    height:20%;
+    border-radius: 15% 0% 0% 15%;
 }
 #salvar{}
