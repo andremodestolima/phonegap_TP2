@@ -34,9 +34,10 @@ label{
     height:40px;
     border-radius: 8px;
     width: 100%;
+    padding:3px;
 }
 #salvar{
-    margin-top:5px;
+    margin-top:3px;
     padding: 12px 0px 8px 0px;
     height:40px;
     border-radius: 8px;
