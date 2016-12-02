@@ -30,12 +30,13 @@ label{
 }
 
 #texto{
+    font-size: 1.1em;
     height:40px;
     border-radius: 8px;
     width: 100%;
 }
 #salvar{
-    margin: 8px 0px 8px 0px;
+    padding: 8px 0px 8px 0px;
     height:40px;
     border-radius: 8px;
     width: 100%;
