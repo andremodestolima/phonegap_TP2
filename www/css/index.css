@@ -20,8 +20,9 @@ body {
 }
 
 label{
-    text-align: center;
     font-size: 2.1em;
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
 #botoes{
