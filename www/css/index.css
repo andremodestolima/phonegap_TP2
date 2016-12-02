@@ -14,10 +14,11 @@ body {
 
 #areaNome{
     margin: 10% 10% 10% 10%;
-    border: 3px 3px 3px 3px;
+    border: 2px 2px 2px 2px;
     border-style: solid;
-    border-radius: 8px 8px 0px 0px;
+    padding:9px;
     height:30%;
+    border-color: #bfbfbf;
 }
 
 #botoes{
@@ -38,5 +39,6 @@ button{
 #nome{}
 #texto{
     height:50px;
+    border-radius: 0px 8px 0px 8px;
 }
 #salvar{}
