@@ -34,7 +34,6 @@ label{
     height:40px;
     border-radius: 8px;
     width: 100%;
-    padding:3px;
 }
 #salvar{
     margin-top:3px;
@@ -55,4 +54,8 @@ button{
     width:49%;
     height:40px;
     background-color: #d2e4f5;
+}
+
+img{
+    background-color: #bfbfbf;
 }
