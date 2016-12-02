@@ -1,7 +1,7 @@
 function pronto() {
 
     document.getElementById("proximaP").addEventListener("click", proximaPag, false);
-    document.getElementById("texto").addEventListener("change", atualizarNome, false);
+    document.getElementById("texto").addEventListener("input", atualizarNome, false);
 
     function proximaPag() {
         navigator.vibrate(1000);
