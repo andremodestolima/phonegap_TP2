@@ -4,8 +4,10 @@ function teste(){}
 
 function pronto() {
 
+    navigator.notification.alert("estou aqui!!!", teste);
+
     function proximaPag() {
-        navigator.notification.alert("estou aqui!!!", teste);
+
         navigator.vibrate(1000);
         location.href = 'pag2.html';
     }
