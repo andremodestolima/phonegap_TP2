@@ -26,6 +26,7 @@ label{
 
 #nome{
     margin:30% 0% 5% 0%;
+    font-size: 1.4em;
 }
 
 #texto{
@@ -34,8 +35,7 @@ label{
     width: 100%;
 }
 #salvar{
-    margin-top:8px;
-    margin-bottom:8px;
+    margin: 8px 0px 8px 0px;
     height:40px;
     border-radius: 8px;
     width: 100%;
@@ -51,6 +51,5 @@ button{
     margin:0%;
     width:49%;
     height:40px;
-    border-radius:0% 8% 8% 0%;
     background-color: #d2e4f5;
 }
