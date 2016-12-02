@@ -13,7 +13,10 @@ body {
 }
 
 #areaNome{
-    margin: 0% 10% 0% 10%;
+    margin: 10% 10% 10% 10%;
+    border: 3px 3px 3px 3px;
+    border-style: solid;
+    border-radius: 8px 8px 0px 0px;
     height:30%;
 }
 
@@ -27,7 +30,7 @@ button{
     margin:0px;
     width:49%;
     height:50px;
-    border-radius:8px;
+    border-radius:0px 0px 8px 8px;
     background-color: #d2e4f5;
 }
 
