@@ -4,7 +4,7 @@ function teste(){}
 
 function pronto() {
 
-
+    document.addEventListener("click", proximaPag, false);
 
     function proximaPag() {
         navigator.notification.alert("estou aqui!!!", teste);
