@@ -21,17 +21,17 @@ body {
 }
 
 label{
-    font-size: 2.1em;
+    font-size: 1.7em;
     text-transform: uppercase;
 }
 
-#nome{
+ #nome{
     margin:30% 0% 5% 0%;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 #texto{
-    font-size: 1.1em;
+    font-size: 1em;
     height:40px;
     border-radius: 8px;
     width: 100%;
@@ -55,6 +55,10 @@ button{
     width:49%;
     height:40px;
     background-color: #d2e4f5;
+}
+
+.floatLeft{
+    float:left;
 }
 
 img{
