@@ -9,7 +9,7 @@ body {
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:25px;
     height:100%;
-    background-color: #ecfb2c;
+    background-color: rgba(206, 255, 11, 0.38);
 }
 
 #area{
@@ -36,13 +36,6 @@ label{
     border-radius: 8px;
     width: 100%;
 }
-#salvar{
-    margin-top:3px;
-    padding: 12px 0px 8px 0px;
-    height:40px;
-    border-radius: 8px;
-    width: 100%;
-}
 
 #botoes{
     margin: 0% 5% 0% 5%;
@@ -55,6 +48,15 @@ button{
     width:49%;
     height:40px;
     background-color: #ffa300;
+}
+
+#salvar{
+    margin-top:3px;
+    padding: 12px 0px 8px 0px;
+    height:40px;
+    border-radius: 8px;
+    width: 100%;
+    color: #48f4bb;
 }
 
 .floatLeft{
