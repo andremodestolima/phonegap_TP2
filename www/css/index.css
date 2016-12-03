@@ -9,7 +9,7 @@ body {
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:25px;
     height:100%;
-    background-color: #465661;
+    background-color: #ecfb2c;
 }
 
 #area{
@@ -54,7 +54,7 @@ button{
     margin:0%;
     width:49%;
     height:40px;
-    background-color: #d2e4f5;
+    background-color: #ffa300;
 }
 
 .floatLeft{
