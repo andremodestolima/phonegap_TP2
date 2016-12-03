@@ -6,7 +6,7 @@ function pronto() {
     window.localStorage.getItem("nome");
 
     function proximaPag() {
-        navigator.vibrate(1000);
+        navigator.vibrate(300);
         location.href = 'pag2.html';
     }
 
