@@ -58,9 +58,10 @@ button{
     height:50px;
     border-radius: 8px;
     width: 100%;
-    background-color: #48f4bb;
+    background-color: #ae2800;
     font-weight: bold;
     font-size:0.7em;
+    color: rgba(250, 56, 0, 0.26);
 }
 
 .floatLeft{
