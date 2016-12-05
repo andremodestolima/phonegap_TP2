@@ -15,7 +15,7 @@ function pronto() {
     }
 
     function sucessoTirarFoto(imageData) {
-        document.getElementById('imagem').src = "data:image/jpeg;base64," + imageData;
+        document.getElementById('imagem').src = imageData; //"data:image/jpeg;base64," + imageData;
     }
 
     function sucessoAcharFoto(imagePath) {
