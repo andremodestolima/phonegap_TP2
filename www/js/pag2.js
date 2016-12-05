@@ -27,7 +27,8 @@ function pronto() {
     }
 
     function tirarFoto()
-        {navigator.camera.getPicture(sucessoTirarFoto, cameraError, {
+        {navigator.vibrate(200);
+         navigator.camera.getPicture(sucessoTirarFoto, cameraError, {
          quality: 100,
          destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL
          sourceType: Camera.PictureSourceType.CAMERA,       //Camera.PictureSourceType.PHOTOLIBRARY
@@ -38,7 +39,8 @@ function pronto() {
         });}
 
     function escolherFoto()
-        {navigator.camera.getPicture(sucessoAcharFoto, cameraError, {
+        {navigator.vibrate(200);
+         navigator.camera.getPicture(sucessoAcharFoto, cameraError, {
          quality: 100,
          destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL
          sourceType: Camera.PictureSourceType.PHOTOLIBRARY,       //Camera.PictureSourceType.PHOTOLIBRARY
