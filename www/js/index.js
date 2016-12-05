@@ -1,21 +1,25 @@
 function pronto() {
-
     document.getElementById("proximaP").addEventListener("click", proximaPag, false);
     document.getElementById("texto").addEventListener("input", atualizarNome, false);
     document.getElementById("salvar").addEventListener("click", salvarNome, false);
     document.getElementById("nome").innerHTML = window.localStorage.getItem("nome");
     navigator.globalization.getPreferredLanguage(
-        function(lingua) {alert(lingua.value);},
-        function() {document.getElementById("ola").innerHTML ="Olá Mundo!";}
+        function(lingua){
+            if(lingua.value=="pt-BR" || lingua.value=="pt" || lingua.value=="BR" ){
+                document.getElementById("ola").innerHTML = "Olá Mundo!!";
+            }
+            else {document.getElementById("ola").innerHTML = "Hello World!!";}
+        ;},
+        function() {alert("Olá Hello Bonjour!!");}
     );
 
     function proximaPag() {
-        navigator.vibrate(300);
+        navigator.vibrate(200);
         location.href = 'pag2.html';
     }
 
     function atualizarNome() {
-        navigator.vibrate(100);
+        navigator.vibrate(60);
        document.getElementById("nome").innerHTML = document.getElementById("texto").value;
     }
 

@@ -4,12 +4,12 @@ function pronto() {
     document.getElementById("voltaP").addEventListener("click", voltarPag, false);
 
     function proximaPag() {
-        navigator.vibrate(1000);
+        navigator.vibrate(200);
         location.href = 'pag3.html';
     }
 
     function voltarPag() {
-        navigator.vibrate(1000);
+        navigator.vibrate(200);
         location.href = 'index.html';
     }
 
