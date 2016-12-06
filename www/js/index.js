@@ -20,7 +20,8 @@ function pronto() {
 
     function atualizarNome() {
         navigator.vibrate(60);
-       document.getElementById("nome").innerHTML = document.getElementById("texto").value;
+        document.getElementById("nome").innerHTML = document.getElementById("texto").value;
+        document.getElementById("texto").value = "";
     }
 
     function salvarNome(){
