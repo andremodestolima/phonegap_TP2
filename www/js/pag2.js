@@ -14,21 +14,38 @@ function pronto() {
         location.href = 'index.html';
     }
 
-    function sucessoTirarFoto(imageData) {
-        document.getElementById('imagem').src = imageData; //"data:image/jpeg;base64," + imageData;
+    function sucessoFoto(imageData){
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSucesso, console.log("erro de criação de sistema"));  //window.TEMPORARY
+        function fileSucesso(fs){ fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, arquivoSucesso, console.log("erro de criação de arquivo"));}
+        function arquivoSucesso(fileEntry){
+            fileEntry.createWriter(function (fileWriter) {
+                fileWriter.onwriteend = function() {
+                    console.log("Successful file write...");
+                    readFile(fileEntry);
+                };
+
+                fileWriter.onerror = function(erro) {
+                    console.log("Failed file write: " + erro.toString());
+                };
+
+                // If data object is not passed in, create a new Blob instead.
+                if(!imageData){
+                    imageData = new Blob(['some file data'], { type: 'text/plain' });
+                }
+
+                fileWriter.write(imageData);
+            });
+            document.getElementById('imagem').src = fileEntry.toURL();
+        }
     }
 
-    function sucessoAcharFoto(imagePath) {
-        document.getElementById('imagem').src = imagePath;
-    }
-
-    function cameraError(message) {
-        alert('Failed because: ' + message);
+    function cameraErro(message) {
+        alert('Erro: ' + message);
     }
 
     function tirarFoto()
         {navigator.vibrate(200);
-         navigator.camera.getPicture(sucessoTirarFoto, cameraError, {
+         navigator.camera.getPicture(sucessoFoto, cameraErro, {
          quality: 100,
          destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL
          sourceType: Camera.PictureSourceType.CAMERA,       //Camera.PictureSourceType.PHOTOLIBRARY
@@ -40,7 +57,7 @@ function pronto() {
 
     function escolherFoto()
         {navigator.vibrate(200);
-         navigator.camera.getPicture(sucessoAcharFoto, cameraError, {
+         navigator.camera.getPicture(sucessoFoto, cameraErro, {
          quality: 100,
          destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL
          sourceType: Camera.PictureSourceType.PHOTOLIBRARY,       //Camera.PictureSourceType.PHOTOLIBRARY
