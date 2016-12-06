@@ -35,7 +35,7 @@ function pronto() {
             }, arquivoErro);
         }, fileErro);
     }
-
+s
     function fileErro(message){
         alert('Erro no file: ' + message);
     }
