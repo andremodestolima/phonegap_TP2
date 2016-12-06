@@ -18,7 +18,7 @@ function pronto() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
 
-                alert("imageData:"+imageData+"   fs:"+fs+"   fileEntry:"+fileEntry);
+                alert(fileEntry.toURL());
 
 
 
