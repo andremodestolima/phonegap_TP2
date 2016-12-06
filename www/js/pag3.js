@@ -8,12 +8,12 @@ function pronto() {
         location.href = 'pag2.html';
     }
 
-    function salvar{
+    function salvar(){
         navigator.vibrate(200);
         navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:1});
         function captureSuccess(mediaFile) {
                 path = mediaFile.fullPath;
-                console("Gravado!!");
+                alert("Gravado!!");
         }
     }
 }

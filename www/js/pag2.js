@@ -15,17 +15,17 @@ function pronto() {
     }
 
     function sucessoFoto(imageData){
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSucesso, console.log("erro de criação de sistema"));  //window.TEMPORARY
-        function fileSucesso(fs){ fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, arquivoSucesso, console.log("erro de criação de arquivo"));}
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSucesso, alert("erro de criação de sistema"));  //window.TEMPORARY
+        function fileSucesso(fs){ fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, arquivoSucesso, alert("erro de criação de arquivo"));}
         function arquivoSucesso(fileEntry){
             fileEntry.createWriter(function (fileWriter) {
                 fileWriter.onwriteend = function() {
-                    console.log("Successful file write...");
+                    alert("Successful file write...");
                     readFile(fileEntry);
                 };
 
                 fileWriter.onerror = function(erro) {
-                    console.log("Failed file write: " + erro.toString());
+                    alert("Failed file write: " + erro.toString());
                 };
 
                 // If data object is not passed in, create a new Blob instead.
