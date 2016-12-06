@@ -15,58 +15,42 @@ function pronto() {
     }
 
     function sucessoFoto(imageData){
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSucesso, fileErro);  //window.TEMPORARY
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
+            fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
 
-        function fileSucesso(fs){ fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, arquivoSucesso, alert("erro de criação de arquivo"));}
-        function arquivoSucesso(fileEntry){
-            fileEntry.createWriter(function (fileWriter) {
-                fileWriter.onwriteend = function() {
-                    alert("Successful file write...");
-                    readFile(fileEntry);
-                };
+                alert("imageData:"+imageData+"   fs:"+fs+"   fileEntry:"+fileEntry);
 
-                fileWriter.onerror = function(erro) {
-                    alert("Failed file write: " + erro.toString());
-                };
 
-                // If data object is not passed in, create a new Blob instead.
-                if(!imageData){
-                    imageData = new Blob(['some file data'], { type: 'text/plain' });
-                }
 
-                fileWriter.write(imageData);
-            });
-            document.getElementById('imagem').src = fileEntry.toURL();
-        }
+                fileEntry.createWriter(function (fileWriter) {
+                    fileWriter.onwriteend = function() {
+                        alert("Arquivo criado com sucesso!!");
+                        readFile(fileEntry);
+                    };
+                    fileWriter.onerror = function(erro) {
+                        alert("Erro ao criar o arquivo: " + erro.toString());
+                    };
+                    // If data object is not passed in, create a new Blob instead.
+                    if(!imageData){
+                        imageData = new Blob(['some file data'], { type: 'text/plain' });
+                    }
+                    fileWriter.write(imageData);
+                });
+                document.getElementById('imagem').src = fileEntry.toURL();
+            }, arquivoErro);
+        }, fileErro);
     }
 
-    function fileErro(e){
-        var msg = '';
-        switch (e.code){
-            case FileError.QUOTA_EXCEEDED_ERR:
-                msg = 'QUOTA_EXCEEDED_ERR';
-                break;
-            case FileError.NOT_FOUND_ERR:
-                msg = 'NOT_FOUND_ERR';
-                break;
-            case FileError.SECURITY_ERR:
-                msg = 'SECURITY_ERR';
-                break;
-            case FileError.INVALID_MODIFICATION_ERR:
-                msg = 'INVALID_MODIFICATION_ERR';
-                break;
-            case FileError.INVALID_STATE_ERR:
-                msg = 'INVALID_STATE_ERR';
-                break;
-            default:
-                msg = 'Unknown Error';
-                break;
-        };
-        alert('Erro: ' + msg);
+    function fileErro(message){
+        alert('Erro no file: ' + message);
+    }
+
+    function arquivoErro(message){
+        alert('Erro no arquivo: ' + message);
     }
 
     function cameraErro(message) {
-        alert('Erro: ' + message);
+        alert('Erro na camera: ' + message);
     }
 
     function tirarFoto()
