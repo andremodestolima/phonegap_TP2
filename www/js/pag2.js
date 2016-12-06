@@ -15,7 +15,10 @@ function pronto() {
     }
 
     function sucessoFoto(imageData){
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSucesso, alert("erro de criação de sistema"));  //window.TEMPORARY
+        alert(imageData);
+
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSucesso, fileErro);  //window.TEMPORARY
+
         function fileSucesso(fs){ fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, arquivoSucesso, alert("erro de criação de arquivo"));}
         function arquivoSucesso(fileEntry){
             fileEntry.createWriter(function (fileWriter) {
@@ -37,6 +40,10 @@ function pronto() {
             });
             document.getElementById('imagem').src = fileEntry.toURL();
         }
+    }
+
+    function fileErro() {
+        alert("erro de criação de sistema");
     }
 
     function cameraErro(message) {
