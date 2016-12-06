@@ -16,23 +16,32 @@ function pronto() {
 
     function sucessoFoto(imageData){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
-            fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
-                fileEntry.createWriter(function (fileWriter) {
-                    fileWriter.onwriteend = function() {
-                        alert("Arquivo criado com sucesso!!");
-                        readFile(fileEntry);
-                    };
-                    fileWriter.onerror = function(erro) {
-                        alert("Erro ao criar o arquivo: " + erro.toString());
-                    };
+            fs.root.getDirectory( "perfil", {create:true, exclusive: false}, function(diretorio){
+                    imageData.moveTo(diretorio, "fotoPerfil.img", function(fileEntry){
+                        alert(fileEntry);
+                        alert(fileEntry.fullPath);
+                        document.getElementById('imagem').src = fileEntry.fullPath;
+                    }, resOnError);
+            }, resOnError);
+
+
+        //    fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
+        //        fileEntry.createWriter(function (fileWriter) {
+        //            fileWriter.onwriteend = function() {
+        //                alert("Arquivo criado com sucesso!!");
+        //                readFile(fileEntry);
+        //            };
+        //            fileWriter.onerror = function(erro) {
+        //                alert("Erro ao criar o arquivo: " + erro.toString());
+        //            };
                     // If data object is not passed in, create a new Blob instead.
-                    if(!imageData){
-                        imageData = new Blob(['some file data'], { type: 'text/plain' });
-                    }
-                    fileWriter.write(imageData);
-                });
-                document.getElementById('imagem').src = "data:image/jpeg;base64," + fileEntry.toURL();
-            }, arquivoErro);
+        //            if(!imageData){
+        //                imageData = new Blob(['some file data'], { type: 'text/plain' });
+        //            }
+        //            fileWriter.write(imageData);
+        //        });
+        //        document.getElementById('imagem').src = "data:image/jpeg;base64," + fileEntry.toURL();
+        //   }, arquivoErro);
         }, fileErro);
     }
 
