@@ -29,9 +29,9 @@ function pronto() {
                     if(!imageData){
                         imageData = new Blob(['some file data'], { type: 'text/plain' });
                     }
-                    fileWriter.write("data:image/jpeg;base64," + imageData);
+                    fileWriter.write(imageData);
                 });
-                document.getElementById('imagem').src = fileEntry.toURL();
+                document.getElementById('imagem').src = "data:image/jpeg;base64," + fileEntry.toURL();
             }, arquivoErro);
         }, fileErro);
     }
