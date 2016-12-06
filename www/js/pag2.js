@@ -17,11 +17,6 @@ function pronto() {
     function sucessoFoto(imageData){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
-
-                alert(fileEntry.toURL());
-
-
-
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwriteend = function() {
                         alert("Arquivo criado com sucesso!!");
@@ -36,7 +31,7 @@ function pronto() {
                     }
                     fileWriter.write(imageData);
                 });
-                document.getElementById('imagem').src = fileEntry.toURL();
+                document.getElementById('imagem').src = imageData; //fileEntry.toURL();
             }, arquivoErro);
         }, fileErro);
     }
