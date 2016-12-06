@@ -52,7 +52,7 @@ button{
     font-size:0.7em;
 }
 
-#salvar{
+.subButton{
     margin-top:3px;
     padding: 12px 0px 12px 0px;
     height:50px;
@@ -72,8 +72,4 @@ img{
     background-color: #37479a;
     width: 100%;
     height: auto;
-}
-
-.fotos{
-    width:100%;
 }
