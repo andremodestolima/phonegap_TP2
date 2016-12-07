@@ -27,6 +27,8 @@ function pronto() {
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwriteend = function() {
                         alert("Arquivo criado com sucesso!!");
+                        alert(imageData);
+                        alert(fileEntry.toURL());
                         document.getElementById('imagem').src = "data:image/jpeg;base64," + fileEntry.toURL();
                     };
                     fileWriter.onerror = function(erro) {
