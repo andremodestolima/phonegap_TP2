@@ -26,10 +26,10 @@ function pronto() {
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwriteend = function() {
-                        alert("Arquivo criado com sucesso!!");
-                        alert("fileEntry:"+fileEntry);
-                        alert("fileEntry.toURL:"+fileEntry.toURL());
-                        alert("imageData:"+imageData);
+                        //alert("Arquivo criado com sucesso!!");
+                        //alert("fileEntry:"+fileEntry);
+                        //alert("fileEntry.toURL:"+fileEntry.toURL());
+                        //alert("imageData:"+imageData);
                         document.getElementById('imagem').src = fileEntry;
                     };
                     fileWriter.onerror = function(erro) {
@@ -39,7 +39,7 @@ function pronto() {
                     //if(!imageData){
                     //    imageData = new Blob(['some file data'], { type: 'text/plain' });
                     //}
-                    fileWriter.write("data:image/jpeg;base64," + imageData.toURL());
+                    fileWriter.write("data:image/jpeg;base64,"+imageData);
                 });
            }, arquivoErro);
         }, fileErro);
@@ -71,7 +71,7 @@ function pronto() {
         {navigator.vibrate(200);
          navigator.camera.getPicture(sucessoFoto, cameraErro, {
          quality: 100,
-         destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL, FILE_URI
+         destinationType: Camera.DestinationType.DATA_URL, // NATIVE_URI, DATA_URL, FILE_URI
          sourceType: Camera.PictureSourceType.CAMERA,       //Camera.PictureSourceType.PHOTOLIBRARY
          encodingType: Camera.EncodingType.JPEG,           //JPG, PNG
          mediaType: Camera.MediaType.PICTURE,		  //VIDEO, ALLMEDIA
@@ -83,7 +83,7 @@ function pronto() {
         {navigator.vibrate(200);
          navigator.camera.getPicture(sucessoFoto, cameraErro, {
          quality: 100,
-         destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL, FILE_URI
+         destinationType: Camera.DestinationType.DATA_URL, // NATIVE_URI, DATA_URL, FILE_URI
          sourceType: Camera.PictureSourceType.PHOTOLIBRARY,       //Camera.PictureSourceType.PHOTOLIBRARY
          encodingType: Camera.EncodingType.JPEG,           //JPG, PNG
          mediaType: Camera.MediaType.PICTURE,		  //VIDEO, ALLMEDIA
