@@ -16,29 +16,29 @@ function pronto() {
 
     function sucessoFoto(imageData){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
-            fs.root.getDirectory( "perfil", {create:true, exclusive: false}, function(diretorio){
-                    imageData.moveTo(diretorio, "fotoPerfil.img", function(fileEntry){
-                        alert(fileEntry);
-                        alert(fileEntry.toURL());
-                        document.getElementById('imagem').src = fileEntry.toURL;
-                    }, resOnError);
-            }, resOnError);
-//            fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
-//                fileEntry.createWriter(function (fileWriter) {
-//                    fileWriter.onwriteend = function() {
-//                        alert("Arquivo criado com sucesso!!");
-//                        ler_arquivo(fileEntry);
-//                    };
-//                    fileWriter.onerror = function(erro) {
-//                        alert("Erro ao criar o arquivo: " + erro.toString());
-//                    };
+//            fs.root.getDirectory( "perfil", {create:true, exclusive: false}, function(diretorio){
+//                    imageData.moveTo(diretorio, "fotoPerfil.img", function(fileEntry){
+//                        alert(fileEntry);
+//                        alert(fileEntry.toURL());
+//                        document.getElementById('imagem').src = fileEntry.toURL;
+//                    }, resOnError);
+//            }, resOnError);
+            fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
+                fileEntry.createWriter(function (fileWriter) {
+                    fileWriter.onwriteend = function() {
+                        alert("Arquivo criado com sucesso!!");
+                        document.getElementById('imagem').src = "data:image/jpeg;base64," + fileEntry.toURL();
+                    };
+                    fileWriter.onerror = function(erro) {
+                        alert("Erro ao criar o arquivo: " + erro.toString());
+                    };
                     // If data object is not passed in, create a new Blob instead.
                     //if(!imageData){
                     //    imageData = new Blob(['some file data'], { type: 'text/plain' });
                     //}
-//                    fileWriter.write(imageData);
-//                });
-//           }, arquivoErro);
+                    fileWriter.write(imageData);
+                });
+           }, arquivoErro);
         }, fileErro);
     }
 
@@ -68,7 +68,7 @@ function pronto() {
         {navigator.vibrate(200);
          navigator.camera.getPicture(sucessoFoto, cameraErro, {
          quality: 100,
-         destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL
+         destinationType: Camera.DestinationType.DATA_URL, // NATIVE_URI, DATA_URL, FILE_URI
          sourceType: Camera.PictureSourceType.CAMERA,       //Camera.PictureSourceType.PHOTOLIBRARY
          encodingType: Camera.EncodingType.JPEG,           //JPG, PNG
          mediaType: Camera.MediaType.PICTURE,		  //VIDEO, ALLMEDIA
@@ -80,7 +80,7 @@ function pronto() {
         {navigator.vibrate(200);
          navigator.camera.getPicture(sucessoFoto, cameraErro, {
          quality: 100,
-         destinationType: Camera.DestinationType.FILE_URI, // NATIVE_URI, DATA_URL
+         destinationType: Camera.DestinationType.DATA_URL, // NATIVE_URI, DATA_URL, FILE_URI
          sourceType: Camera.PictureSourceType.PHOTOLIBRARY,       //Camera.PictureSourceType.PHOTOLIBRARY
          encodingType: Camera.EncodingType.JPEG,           //JPG, PNG
          mediaType: Camera.MediaType.PICTURE,		  //VIDEO, ALLMEDIA
