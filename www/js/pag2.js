@@ -24,7 +24,7 @@ function pronto() {
                         //alert("fileEntry.toURL:"+fileEntry.toURL());
                         //alert("imageData:"+imageData);
                         //document.getElementById('imagem').src = fileEntry.toURL();
-                        //ler_arquivo(fileEntry);
+                        ler_arquivo(fileEntry);
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
@@ -38,11 +38,8 @@ function pronto() {
     function ler_arquivo(fileEntry){
         fileEntry.file(function (arquivo){
             var reader = new FileReader();
-            reader.onloadend = function(){ alert("Successful file read: " + this.result); };
-            alert(arquivo);
-            alert(reader.readAsText(arquivo));
-            alert("pronto!!FIm!!");
-            //document.getElementById('imagem').src = fileEntry.toURL(); //"data:image/jpeg;base64," + fileEntry.toURL();
+            reader.onloadend = function(){ document.getElementById('imagem').src = reader.result; };
+            reader.readAsDataURL(arquivo);
         })
     }
 
