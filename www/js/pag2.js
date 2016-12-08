@@ -30,7 +30,7 @@ function pronto() {
                         alert("fileEntry:"+fileEntry);
                         alert("fileEntry.toURL:"+fileEntry.toURL());
                         //alert("imageData:"+imageData);
-                        document.getElementById('imagem').src = fileEntry;
+                        document.getElementById('imagem').src = fileEntry.toURL();
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
