@@ -29,7 +29,7 @@ function pronto() {
                         alert("Arquivo criado com sucesso!!");
                         alert("fileEntry:"+fileEntry);
                         alert("fileEntry.toURL:"+fileEntry.toURL());
-                        //alert("imageData:"+imageData);
+                        alert("imageData:"+imageData);
                         document.getElementById('imagem').src = fileEntry.toURL();
                     };
                     fileWriter.onerror = function(erro) {
