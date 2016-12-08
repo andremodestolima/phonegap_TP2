@@ -16,29 +16,19 @@ function pronto() {
 
     function sucessoFoto(imageData){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
-//            fs.root.getDirectory( "perfil", {create:true, exclusive: false}, function(diretorio){
-//                    imageData.moveTo(diretorio, "fotoPerfil.img", function(fileEntry){
-//                        alert(fileEntry);
-//                        alert(fileEntry.toURL());
-//                        document.getElementById('imagem').src = fileEntry.toURL;
-//                    }, resOnError);
-//            }, resOnError);
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwriteend = function() {
                         alert("Arquivo criado com sucesso!!");
-                        alert("fileEntry:"+fileEntry);
-                        alert("fileEntry.toURL:"+fileEntry.toURL());
-                        alert("imageData:"+imageData);
-                        document.getElementById('imagem').src = fileEntry.toURL();
+                        //alert("fileEntry:"+fileEntry);
+                        //alert("fileEntry.toURL:"+fileEntry.toURL());
+                        //alert("imageData:"+imageData);
+                        //document.getElementById('imagem').src = fileEntry.toURL();
+                        ler_arquivo(fileEntry);
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
                     };
-                    // If data object is not passed in, create a new Blob instead.
-                    //if(!imageData){
-                    //    imageData = new Blob(['some file data'], { type: 'text/plain' });
-                    //}
                     fileWriter.write("data:image/jpeg;base64,"+imageData);
                 });
            }, arquivoErro);
@@ -50,8 +40,9 @@ function pronto() {
             var reader = new FileReader();
             reader.onloadend = function(){ alert("Successful file read: " + this.result); };
             alert(arquivo);
-            reader.readAsText(arquivo);
-            document.getElementById('imagem').src = fileEntry.toURL(); //"data:image/jpeg;base64," + fileEntry.toURL();
+            alert(reader.readAsText(arquivo));
+            alert("pronto!!FIm!!");
+            //document.getElementById('imagem').src = fileEntry.toURL(); //"data:image/jpeg;base64," + fileEntry.toURL();
         })
     }
 
