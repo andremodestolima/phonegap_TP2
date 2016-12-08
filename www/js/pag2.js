@@ -18,18 +18,18 @@ function pronto() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
                 fileEntry.createWriter(function (fileWriter) {
-                    fileWriter.onwriteend = function() {
+                    fileWriter.onwrite = function() {
                         alert("Arquivo criado com sucesso!!");
                         //alert("fileEntry:"+fileEntry);
                         //alert("fileEntry.toURL:"+fileEntry.toURL());
                         //alert("imageData:"+imageData);
                         //document.getElementById('imagem').src = fileEntry.toURL();
-                        ler_arquivo(fileEntry);
+                        //ler_arquivo(fileEntry);
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
                     };
-                    fileWriter.write("data:image/jpeg;base64,"+imageData);
+                    fileWriter.write(imageData);     //"data:image/jpeg;base64,"+
                 });
            }, arquivoErro);
         }, fileErro);
