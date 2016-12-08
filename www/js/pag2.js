@@ -26,8 +26,8 @@ function pronto() {
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwriteend = function() {
-                        //alert("Arquivo criado com sucesso!!");
-                        //alert("fileEntry:"+fileEntry);
+                        alert("Arquivo criado com sucesso!!");
+                        alert("fileEntry:"+fileEntry);
                         //alert("fileEntry.toURL:"+fileEntry.toURL());
                         //alert("imageData:"+imageData);
                         document.getElementById('imagem').src = fileEntry;
@@ -39,7 +39,7 @@ function pronto() {
                     //if(!imageData){
                     //    imageData = new Blob(['some file data'], { type: 'text/plain' });
                     //}
-                    fileWriter.write("data:image/jpeg;base64,"+imageData);
+                    fileWriter.write(imageData);  //"data:image/jpeg;base64,"
                 });
            }, arquivoErro);
         }, fileErro);
