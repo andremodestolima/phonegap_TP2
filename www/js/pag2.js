@@ -39,7 +39,7 @@ function pronto() {
                     //if(!imageData){
                     //    imageData = new Blob(['some file data'], { type: 'text/plain' });
                     //}
-                    fileWriter.write(imageData);  //"data:image/jpeg;base64,"
+                    fileWriter.write("data:image/jpeg;base64,"+imageData);
                 });
            }, arquivoErro);
         }, fileErro);
