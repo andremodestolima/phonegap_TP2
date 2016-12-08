@@ -18,29 +18,22 @@ function pronto() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
                 fileEntry.createWriter(function (fileWriter) {
-                    fileWriter.onwrite = function() {
-                        alert("Arquivo criado com sucesso!!");
-                        //alert("fileEntry:"+fileEntry);
-                        //alert("fileEntry.toURL:"+fileEntry.toURL());
-                        //alert("imageData:"+imageData);
-                        //document.getElementById('imagem').src = fileEntry.toURL();
-                        ler_arquivo(fileEntry);
+                    fileWriter.onwrite = function(){
+                        fileEntry.file(function (arquivo){
+                            var reader = new FileReader();
+                            reader.onloadend = function(){
+                                    alert("Arquivo criado com sucesso!!");
+                                    document.getElementById('imagem').src = reader.result; };
+                            reader.readAsDataURL(arquivo);
+                        })
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
                     };
-                    fileWriter.write(imageData);     //"data:image/jpeg;base64,"+
+                    fileWriter.write("data:image/jpeg;base64,"+imageData);     //"data:image/jpeg;base64,"+
                 });
            }, arquivoErro);
         }, fileErro);
-    }
-
-    function ler_arquivo(fileEntry){
-        fileEntry.file(function (arquivo){
-            var reader = new FileReader();
-            reader.onloadend = function(){ document.getElementById('imagem').src = reader.result; };
-            reader.readAsDataURL(arquivo);
-        })
     }
 
     function fileErro(message){
