@@ -21,7 +21,7 @@ function pronto() {
                     fileWriter.onwrite = function(){
                         fileEntry.file(function (arquivo){
                             var reader = new FileReader();
-                            reader.onloadend = function(){
+                            reader.onload = function(){
                                     alert("Arquivo criado com sucesso!!");
                                     document.getElementById('imagem').src = reader.result; };
                             reader.readAsDataURL(arquivo);
