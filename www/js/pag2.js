@@ -23,14 +23,14 @@ function pronto() {
                             var reader = new FileReader();
                             reader.onload = function(){
                                     alert("Arquivo criado com sucesso!!");
-                                    document.getElementById('imagem').src = reader.result; };
+                                    document.getElementById('imagem').src = "data:image/jpeg;base64,"+ reader.result; };
                             reader.readAsDataURL(arquivo);
                         })
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
                     };
-                    fileWriter.write("data:image/jpeg;base64,"+imageData);     //"data:image/jpeg;base64,"+
+                    fileWriter.write(imageData);     //"data:image/jpeg;base64,"+
                 });
            }, arquivoErro);
         }, fileErro);
