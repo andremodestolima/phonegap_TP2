@@ -23,7 +23,7 @@ function pronto() {
                             var reader = new FileReader();
                             reader.onload = function(){
                                     alert("Arquivo criado com sucesso!!");
-                                    document.getElementById('imagem').src = fileEntry.fullPath; };
+                                    document.getElementById('imagem').src = "data:image/jpeg;base64,"+ fileEntry.fullPath; };
                                     //document.getElementById('imagem').src = reader.result; };
                             reader.readAsDataURL(arquivo);
                         })
