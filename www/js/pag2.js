@@ -3,7 +3,9 @@ function pronto() {
     document.getElementById("voltaP").addEventListener("click", voltarPag, false);
     document.getElementById("tirarFoto").addEventListener("click", tirarFoto, false);
     document.getElementById("escolherFoto").addEventListener("click", escolherFoto, false);
-    lerArquivo(JSON.parse(window.localStorage.getItem("fotoPerfil")));
+    foto = JSON.parse(window.localStorage.getItem("fotoPerfil"));
+    alert(foto);
+    lerArquivo();
 
     function proximaPag() {
         navigator.vibrate(200);
