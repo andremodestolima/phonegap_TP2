@@ -19,13 +19,13 @@ function pronto() {
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwrite = function(){
-                        fileEntry.file(function (arquivo){
+                        fileEntry.file(function (file){
                             var reader = new FileReader();
                             reader.onload = function(){
                                     alert("Arquivo criado com sucesso!!");
-                                    document.getElementById('imagem').src = "data:image/jpeg;base64,"+ fileEntry.fullPath; };
+                                    document.getElementById('imagem').src = this.result; };
                                     //document.getElementById('imagem').src = reader.result; };
-                            reader.readAsDataURL(arquivo);
+                            reader.readAsDataURL(file);
                         })
                     };
                     fileWriter.onerror = function(erro) {
