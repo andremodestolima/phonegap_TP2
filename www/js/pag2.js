@@ -3,6 +3,7 @@ function pronto() {
     document.getElementById("voltaP").addEventListener("click", voltarPag, false);
     document.getElementById("tirarFoto").addEventListener("click", tirarFoto, false);
     document.getElementById("escolherFoto").addEventListener("click", escolherFoto, false);
+    lerArquivo(JSON.parse(window.localStorage.getItem("fotoPerfil")));
 
     function proximaPag() {
         navigator.vibrate(200);
@@ -18,23 +19,26 @@ function pronto() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
             fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
                 fileEntry.createWriter(function (fileWriter) {
-                    fileWriter.onwrite = function(){
-                        fileEntry.file(function (file){
-                            var reader = new FileReader();
-                            reader.onload = function(){
-                                    document.getElementById('imagem').src = "data:image/jpeg;base64,"+ this.result; };
-                            reader.readAsText(file);
-                        })
+                    fileWriter.onwrite = function() {
+                        lerArquivo(fileEntry);
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
                     };
                     fileWriter.write(imageData);
-                    alert(JSON.stringify(fileEntry));
-                    //window.localStorage.setItem("fotoPerfil", usuario.nome);
+                    window.localStorage.setItem("fotoPerfil", JSON.stringify(fileEntry));
                 });
            }, arquivoErro);
         }, fileErro);
+    }
+
+    function lerArquivo(fileEntry){
+        fileEntry.file(function (file){
+            var reader = new FileReader();
+            reader.onload = function(){
+                document.getElementById('imagem').src = "data:image/jpeg;base64,"+ this.result; };
+            reader.readAsText(file);
+        })
     }
 
     function fileErro(message){
