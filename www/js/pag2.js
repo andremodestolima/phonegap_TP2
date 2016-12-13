@@ -4,8 +4,7 @@ function pronto() {
     document.getElementById("tirarFoto").addEventListener("click", tirarFoto, false);
     document.getElementById("escolherFoto").addEventListener("click", escolherFoto, false);
     foto = JSON.parse(window.localStorage.getItem("fotoPerfil"));
-    alert(foto);
-    lerArquivo();
+    lerArquivo(foto);
 
     function proximaPag() {
         navigator.vibrate(200);
