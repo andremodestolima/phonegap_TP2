@@ -23,9 +23,10 @@ function pronto() {
                             var reader = new FileReader();
                             reader.onload = function(){
                                     alert("Arquivo criado com sucesso!!");
-                                    document.getElementById('imagem').src = this.result; };
+                                    //alert(this.result);
+                                    document.getElementById('imagem').src = "data:image/jpeg;base64,"+ this.result; };
                                     //document.getElementById('imagem').src = reader.result; };
-                            reader.readAsDataURL(file);
+                            reader.readAsText(file);
                         })
                     };
                     fileWriter.onerror = function(erro) {
