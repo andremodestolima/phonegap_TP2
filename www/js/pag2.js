@@ -22,17 +22,15 @@ function pronto() {
                         fileEntry.file(function (file){
                             var reader = new FileReader();
                             reader.onload = function(){
-                                    alert("Arquivo criado com sucesso!!");
-                                    //alert(this.result);
+                                    alert(this.result);
                                     document.getElementById('imagem').src = "data:image/jpeg;base64,"+ this.result; };
-                                    //document.getElementById('imagem').src = reader.result; };
                             reader.readAsText(file);
                         })
                     };
                     fileWriter.onerror = function(erro) {
                         alert("Erro ao criar o arquivo: " + erro.toString());
                     };
-                    fileWriter.write(imageData);     //"data:image/jpeg;base64,"+
+                    fileWriter.write(imageData);
                 });
            }, arquivoErro);
         }, fileErro);
