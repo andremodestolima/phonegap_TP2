@@ -22,7 +22,6 @@ function pronto() {
                         fileEntry.file(function (file){
                             var reader = new FileReader();
                             reader.onload = function(){
-                                    alert(this.result);
                                     document.getElementById('imagem').src = "data:image/jpeg;base64,"+ this.result; };
                             reader.readAsText(file);
                         })
@@ -31,6 +30,8 @@ function pronto() {
                         alert("Erro ao criar o arquivo: " + erro.toString());
                     };
                     fileWriter.write(imageData);
+                    alert(JSON.stringify(fileEntry));
+                    //window.localStorage.setItem("fotoPerfil", usuario.nome);
                 });
            }, arquivoErro);
         }, fileErro);
