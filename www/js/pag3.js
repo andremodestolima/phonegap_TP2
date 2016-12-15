@@ -1,7 +1,7 @@
 function pronto() {
 
     document.getElementById("voltaP").addEventListener("click", voltarPag, false);
-    document.getElementById("salvar").addEventListener("salvar", voltarPag, false);
+    document.getElementById("salvar").addEventListener("click", salvar, false);
 
     function voltarPag() {
         navigator.vibrate(200);
@@ -12,8 +12,9 @@ function pronto() {
         navigator.vibrate(200);
         navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:1});
         function captureSuccess(mediaFile) {
-                path = mediaFile.fullPath;
-                alert("Gravado!!");
+            document.getElementById("audioOgg").src = mediaFile.fullPath;
+            document.getElementById("audioMpeg").src = mediaFile.fullPath;
+            alert("Gravado!!"+fullPath);
         }
     }
 }
