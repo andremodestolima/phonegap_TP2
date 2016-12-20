@@ -10,7 +10,7 @@ function pronto() {
             }
             else {document.getElementById("ola").innerHTML = "Hello World!!";}
         ;},
-        function() {alert("Olá Hello Bonjour!!");}
+        function() {document.getElementById("ola").innerHTML = "Hello World!!";}
     );
 
     function proximaPag() {
